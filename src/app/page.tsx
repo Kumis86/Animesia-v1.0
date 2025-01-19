@@ -1,4 +1,4 @@
-// src/app/page.tsx
+//src/app/page.tsx
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -86,9 +86,9 @@ export default function Home() {
             className="w-full h-[70vh] sm:h-[80vh] lg:h-[90vh]"
           >
             {animeList.slice(0, 5).map((anime) => (
-              <SwiperSlide key={anime.id}>
+              <SwiperSlide key={anime.id} className="swiper-slide">
                 <div
-                  className="w-full h-full bg-cover bg-center flex items-center relative"
+                  className="w-full h-full bg-cover bg-center flex items-center relative hero-image"
                   style={{ backgroundImage: `url(${anime.image})` }}
                 >
                   {/* Overlay Gradasi Kiri */}
@@ -140,14 +140,14 @@ export default function Home() {
             {animeList.slice(5, 13).map((anime) => (
               <div
                 key={anime.id}
-                className="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition"
+                className="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 hover:border-2 hover:border-blue-500"
               >
                 <Image
                   src={anime.image}
                   alt={anime.title}
                   width={300}
                   height={400}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover transition-transform duration-500"
                 />
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-white mb-2">

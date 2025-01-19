@@ -1,8 +1,8 @@
-// src/app/anime-list/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Define the type for anime data
 type Anime = {
@@ -55,7 +55,12 @@ export default function AnimeList() {
       {/* Header */}
       <header className="bg-gray-800 shadow-md p-4">
         <div className="container mx-auto flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-blue-500">Animesia</h1>
+          {/* Tambahkan Link pada h1 dengan efek transisi */}
+          <Link href="/">
+            <h1 className="text-2xl font-bold text-blue-500 cursor-pointer transition-transform duration-300 hover:scale-110">
+              Animesia
+            </h1>
+          </Link>
           <input
             type="text"
             placeholder="Cari anime..."
@@ -74,15 +79,17 @@ export default function AnimeList() {
             filteredAnime.map((anime) => (
               <div
                 key={anime.id}
-                className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition"
+                className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 hover:border-2 hover:border-blue-500"
               >
-                <Image
-                  src={anime.image}
-                  alt={anime.title}
-                  width={300}
-                  height={400}
-                  className="w-full h-[400px] object-cover"
-                />
+                <div className="relative group">
+                  <Image
+                    src={anime.image}
+                    alt={anime.title}
+                    width={300}
+                    height={400}
+                    className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="text-lg font-bold text-blue-400 mb-2">
                     {anime.title}
